@@ -1,0 +1,24 @@
+{
+  "name": "vueitems",
+  "description": "vueitems - data items table-based component",
+  "main": "./lib/vueitems.js",
+  "authors": [
+    "Rati Wannapanop <rati.wannapanop@gmail.com>",
+  ],
+  "license": "MIT",
+  "keywords": [
+    "vuejs",
+    "vueitems",
+    "dataitem",
+    "table"
+  ],
+  "homepage": "https://github.com/ratiw/vueitems",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
