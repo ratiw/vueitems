@@ -2,6 +2,7 @@
 [![Travis build](https://img.shields.io/travis/ratiw/vueitems.svg)](https://travis-ci.org/ratiw/vueitems)
 [![Coverage Status](https://coveralls.io/repos/github/ratiw/vueitems/badge.svg?branch=master)](https://coveralls.io/github/ratiw/vueitems?branch=master)
 [![npm](https://img.shields.io/npm/l/vueitems.svg)]()
+[![GitHub tag](https://img.shields.io/github/tag/ratiw/vueitems.svg)]()
 [![npm version](https://img.shields.io/npm/v/vueitems.svg)](https://www.npmjs.com/package/vueitems)
 
 > Vue.js component to display dynamic data items table
