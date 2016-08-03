@@ -791,6 +791,14 @@ describe('Vueitems internal methods', () => {
       let result = comp.getObjectValue(obj, '', 'foo')
       expect(result).to.equal(obj)
     })
+    it('should return null when given object is null and no default value is given', () => {
+      let result = comp.getObjectValue(null)
+      expect(result).to.be.null
+    })
+    it('should return default value when given object is null and default value is given', () => {
+      let result = comp.getObjectValue(null, '', 'foo')
+      expect(result).to.equal('foo')
+    })
   })
 
   describe('#addClass()', () => {

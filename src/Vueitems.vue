@@ -256,14 +256,14 @@ export default {
 
             return null
         },
-        getObjectValue: function(object, path, defaultValue) {
-                defaultValue = (typeof defaultValue == 'undefined') ? null : defaultValue
+        getObjectValue: function(object, path = '', defaultValue = null) {
+                path = path.trim()
 
                 var obj = object
-                if (path.trim() != '') {
+                if (path != '') {
                     var keys = path.split('.')
                     keys.forEach(function(key) {
-                        if (typeof obj[key] != 'undefined' && obj[key] !== null) {
+                        if (obj !== null && typeof obj[key] != 'undefined' && obj[key] !== null) {
                             obj = obj[key]
                         } else {
                             obj = defaultValue
@@ -271,7 +271,7 @@ export default {
                         }
                     })
                 }
-                return obj
+                return obj === null ? defaultValue : obj
         },
         callAction: function(action, data) {
             this.$dispatch(this.eventPrefix+'action', action, data)
