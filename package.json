@@ -1,6 +1,6 @@
 {
   "name": "vueitems",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Vue.js component for data items",
   "author": "Rati Wannapanop <rati.wannapanop@gmail.com>",
   "private": false,
