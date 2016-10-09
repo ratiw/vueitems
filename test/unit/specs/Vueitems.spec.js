@@ -3,6 +3,10 @@ import Vueitems from 'src/Vueitems'
 
 describe('Vueitems.vue', () => {
 
+  it('has a ready hook', () => {
+    expect(typeof Vueitems.ready).to.equal('function')
+  })
+
   it('should parse basic array of fields definition correctly', () => {
     const vm = new Vue({
       template: '<vueitems :fields="columns"></vueitems>',
