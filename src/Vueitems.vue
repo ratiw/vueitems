@@ -71,6 +71,7 @@
                 </template>
             </tbody>
         </table>
+    </div>
 </template>
 
 <script>
