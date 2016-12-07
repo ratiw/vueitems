@@ -27,7 +27,8 @@
             <tbody v-cloak id="vueitems-list">
                 <tr v-for="(itemNumber, item) in dataItems"
                     item-id="{{itemNumber}}"
-                    @click="onRowClicked(item, $event)">
+                    @click="onRowClicked(item, $event)"
+                    @dblclick="onRowDoubleClicked(item, $event)">
                     <template v-if="onRowChanged(item)"></template>
                     <template v-for="field in fields">
                             <template v-if="field.visible">
@@ -45,10 +46,13 @@
                                     </td>
                                     <td v-if="field.name == '__actions'" class="vueitems-actions {{field.dataClass}}">
                                         <template v-for="action in itemActions">
-                                            <button class="action-button {{ action.class }}" @click="callAction(action.name, item)" v-attr="action.extra">
+                                            <button class="action-button {{ action.class }}" @click="callAction(action.name, item, itemNumber)" v-attr="action.extra">
                                                 <i class="{{ action.icon }}"></i> {{ action.label }}
                                             </button>
                                         </template>
+                                    </td>
+                                    <td v-if="extractName(field.name) === '__component'" :class="field.dataClass">
+                                        <component :is="extractArgs(field.name)" :row-data="item" :row-index="itemNumber"></component>
                                     </td>
                                 </template>
                                 <template v-else>
@@ -274,8 +278,8 @@ export default {
                 }
                 return obj === null ? defaultValue : obj
         },
-        callAction: function(action, data) {
-            this.$dispatch(this.eventPrefix+'action', action, data)
+        callAction: function(action, data, index) {
+            this.$dispatch(this.eventPrefix+'action', action, data, index)
         },
         toggleCheckbox: function(isChecked, dataItem, fieldName) {
             var idColumn = this.extractArgs(fieldName)
@@ -325,6 +329,10 @@ export default {
         },
         onRowClicked: function(dataItem, event) {
             this.$dispatch(this.eventPrefix+'row-clicked', dataItem, event)
+            return true
+        },
+        onRowDoubleClicked: function(dataItem, event) {
+            this.$dispatch(this.eventPrefix+'row-dblclicked', dataItem, event)
             return true
         },
         onCellDoubleClicked: function(dataItem, field, event) {
