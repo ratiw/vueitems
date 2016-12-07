@@ -470,6 +470,15 @@ describe('events', () => {
       expect(spy).to.have.been.calledOnce
     })
   })
+  describe('#row-dblclicked', () => {
+    it('should dispatch row-dblclicked event', () => {
+      let spy = sinon.spy()
+      vm.$on('vueitems:row-dblclicked', spy)
+
+      comp.onRowDoubleClicked(vm.dataItems[0])
+      expect(spy).to.have.been.calledOnce
+    })
+  })
   describe('#cell-dblclicked', () => {
     it('should dispatch cell-dblclicked event', () => {
       let spy = sinon.spy()
